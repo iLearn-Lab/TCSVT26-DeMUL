@@ -234,7 +234,7 @@ If you find DeMUL useful in your research, please cite:
 
 ```bibtex
 @article{yang2026demul,
-  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lu, Ke and Guan, Weili},
+  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lv, Ke and Guan, Weili},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
   title={Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization},
   year={2026},
