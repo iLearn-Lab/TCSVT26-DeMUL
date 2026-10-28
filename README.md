@@ -1,6 +1,8 @@
 # DeMUL
 
-Official implementation of **Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization**.
+Official implementation of **Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization** (IEEE TCSVT 2026).
+
+**Paper**: [IEEE Xplore](https://ieeexplore.ieee.org/document/11574042) | [DOI: 10.1109/TCSVT.2026.3705906](https://doi.org/10.1109/TCSVT.2026.3705906)
 
 ---
 
@@ -35,6 +37,14 @@ DeMUL/
     ├── inference.sh
     └── download_weights.sh
 ```
+
+---
+
+## Model Architecture
+
+<p align="center">
+  <img src="assets/model_architecture.png" alt="Overview of the DeMUL framework" width="95%"/>
+</p>
 
 ---
 
@@ -182,6 +192,24 @@ This project is released under the [MIT License](LICENSE).
 
 ---
 
+## Citation
+
+If you find this code useful, please cite:
+
+```bibtex
+@article{yang2026demul,
+  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lu, Ke and Guan, Weili},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  title={Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization},
+  year={2026},
+  volume={36},
+  number={10},
+  pages={15069-15081},
+  doi={10.1109/TCSVT.2026.3705906}
+}
+```
+
+---
 
 ## Acknowledgements
 
