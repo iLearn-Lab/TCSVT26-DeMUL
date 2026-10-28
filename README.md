@@ -4,7 +4,9 @@
 
 ### DeMUL · IEEE TCSVT 2026
 
-[Yong Yang](https://github.com/Yongyangyyy), Meng Liu, Xuemeng Song, Na Zheng, Ke Lu, Weili Guan
+[Yong Yang](https://github.com/Yongyangyyy), Meng Liu, Xuemeng Song, Na Zheng, Ke Lu, Weili Guan<sup>†</sup>
+
+<sup>†</sup>Corresponding author
 
 [![Paper](https://img.shields.io/badge/Paper-IEEE_Xplore-00629B.svg)](https://ieeexplore.ieee.org/document/11574042)
 [![DOI](https://img.shields.io/badge/DOI-10.1109%2FTCSVT.2026.3705906-808080.svg)](https://doi.org/10.1109/TCSVT.2026.3705906)
