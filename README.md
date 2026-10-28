@@ -4,7 +4,7 @@
 
 ### DeMUL · IEEE TCSVT 2026
 
-[Yong Yang](https://github.com/Yongyangyyy)<sup>1</sup>, Meng Liu<sup>2</sup>, Xuemeng Song<sup>3</sup>, Na Zheng<sup>4</sup>, Ke Lv<sup>5,6</sup>, Weili Guan<sup>1,†</sup>
+[Yong Yang](https://github.com/Yongyangyyy)<sup>1</sup>, Meng Liu<sup>2</sup>, Xuemeng Song<sup>3</sup>, Na Zheng<sup>4</sup>, Ke Lu<sup>5,6</sup>, Weili Guan<sup>1,†</sup>
 
 <sup>1</sup>Harbin Institute of Technology, Shenzhen &nbsp;
 <sup>2</sup>Shandong University &nbsp;
@@ -234,7 +234,7 @@ If you find DeMUL useful in your research, please cite:
 
 ```bibtex
 @article{yang2026demul,
-  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lv, Ke and Guan, Weili},
+  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lu, Ke and Guan, Weili},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
   title={Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization},
   year={2026},
