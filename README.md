@@ -1,10 +1,35 @@
-# DeMUL
+<div align="center">
 
-Official implementation of **Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization** (IEEE TCSVT 2026).
+# Video Corpus Moment Retrieval via<br>Decoupled Multimodal Modeling and Unified Localization
 
-**Paper**: [IEEE Xplore](https://ieeexplore.ieee.org/document/11574042) | [DOI: 10.1109/TCSVT.2026.3705906](https://doi.org/10.1109/TCSVT.2026.3705906)
+### DeMUL · IEEE TCSVT 2026
 
----
+[Yong Yang](https://github.com/Yongyangyyy), Meng Liu, Xuemeng Song, Na Zheng, Ke Lu, Weili Guan
+
+[![Paper](https://img.shields.io/badge/Paper-IEEE_Xplore-00629B.svg)](https://ieeexplore.ieee.org/document/11574042)
+[![DOI](https://img.shields.io/badge/DOI-10.1109%2FTCSVT.2026.3705906-808080.svg)](https://doi.org/10.1109/TCSVT.2026.3705906)
+[![License](https://img.shields.io/badge/License-MIT-4c8c2b.svg)](LICENSE)
+
+</div>
+
+## Updates
+
+- **2026-10:** Updated the README with the official citation and the framework figure.
+- **2026-06:** DeMUL is published in **IEEE TCSVT** (vol. 36, no. 10).
+- **2026-05:** Released the code and the pre-trained TVR checkpoint.
+
+## Overview
+
+Video Corpus Moment Retrieval (VCMR) aims to retrieve a target temporal moment from a large corpus of untrimmed videos given a natural-language query. Existing methods typically fuse multiple video modalities (e.g., visual content and subtitles) *before* aligning them with the query, which obscures modality-specific discriminative cues and reduces robustness when modalities are noisy, imbalanced, or unavailable. **DeMUL** addresses this with two key designs:
+
+- **Decoupled Multimodal Modeling:** the query is aligned with the visual and subtitle modalities *separately*; the query-aligned modality-specific representations are then integrated for temporal localization, preserving modality-specific cues while exploiting complementary multimodal evidence.
+- **Unified Localization:** a unified moment localization head jointly optimizes unimodal and multimodal branches in a shared prediction space, without auxiliary distillation or extra supervision.
+
+DeMUL achieves state-of-the-art VCMR performance on **TVR** and **DiDeMo**, and remains robust under modality-missing and degraded-input conditions.
+
+<p align="center">
+  <img src="assets/model_architecture.png" width="92%" alt="Overview of the DeMUL framework">
+</p>
 
 ## Project Structure
 
@@ -38,26 +63,38 @@ DeMUL/
     └── download_weights.sh
 ```
 
----
+## Installation
 
-## Model Architecture
+### Requirements
 
-<p align="center">
-  <img src="assets/model_architecture.png" alt="Overview of the DeMUL framework" width="95%"/>
-</p>
+- Linux with an NVIDIA GPU.
+- Python 3.10.
 
----
-
-## Getting Started
-
-### 1. Clone this repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/Yongyangyyy/DeMUL.git
 cd DeMUL
 ```
 
-### 2. Prepare feature files and data
+Install dependencies:
+
+```bash
+# Option 1: pip
+pip install -r requirements.txt
+
+# Option 2: conda (recommended for CUDA)
+conda create -n demul python=3.10 -y
+conda activate demul
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+pip install -r requirements.txt
+```
+
+Key dependencies: `torch>=2.0`, `tensorboard`, `lmdb`, `msgpack`, `msgpack-numpy`, `easydict`, `tqdm`.
+
+## Data and Checkpoints
+
+### Prepare feature files and data
 
 We use the same pre-extracted features as [CONQUER](https://github.com/houzhijian/CONQUER). Please refer to their data preparation instructions.
 
@@ -90,24 +127,7 @@ DiDeMo features follow the same CONQUER-compatible directory layout. Prepare `di
 "root_path": "/path/to/didemo_feature_release"
 ```
 
-### 3. Install dependencies
-
-```bash
-# Option 1: pip
-pip install -r requirements.txt
-
-# Option 2: conda (recommended for CUDA)
-conda create -n demul python=3.10 -y
-conda activate demul
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
-pip install -r requirements.txt
-```
-
-Key dependencies: `torch>=2.0`, `tensorboard`, `lmdb`, `msgpack`, `msgpack-numpy`, `easydict`, `tqdm`.
-
----
-
-## Model Zoo
+### Model Zoo
 
 We release the best pre-trained **TVR** checkpoint. Metrics are reported on the **validation** split with NMS threshold 0.7.
 
@@ -135,14 +155,6 @@ wget https://github.com/Yongyangyyy/DeMUL/raw/main/checkpoints/demul_tvr/opt.jso
 wget https://github.com/Yongyangyyy/DeMUL/raw/main/checkpoints/demul_tvr/metrics.json \
      -P checkpoints/demul_tvr/
 ```
-
-### Inference with Pre-trained Weights
-
-```bash
-bash scripts/inference.sh checkpoints/demul_tvr val
-```
-
----
 
 ## Training
 
@@ -174,42 +186,21 @@ To fine-tune from a TVR checkpoint:
 bash scripts/train_didemo.sh demul_didemo_run1 2018 0 results/tvr-my_run-YYYY_MM_DD_HH_MM_SS
 ```
 
----
+## Evaluation
 
-## Inference
+Run inference with a trained checkpoint:
 
 ```bash
 bash scripts/inference.sh results/tvr-my_run-YYYY_MM_DD_HH_MM_SS val
 ```
 
-Checkpoints and logs are saved under `results/<exp_name>-<timestamp>/`.
+Or evaluate with the pre-trained weights:
 
----
-
-## License
-
-This project is released under the [MIT License](LICENSE).
-
----
-
-## Citation
-
-If you find this code useful, please cite:
-
-```bibtex
-@article{yang2026demul,
-  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lu, Ke and Guan, Weili},
-  journal={IEEE Transactions on Circuits and Systems for Video Technology},
-  title={Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization},
-  year={2026},
-  volume={36},
-  number={10},
-  pages={15069-15081},
-  doi={10.1109/TCSVT.2026.3705906}
-}
+```bash
+bash scripts/inference.sh checkpoints/demul_tvr val
 ```
 
----
+Checkpoints and logs are saved under `results/<exp_name>-<timestamp>/`.
 
 ## Acknowledgements
 
@@ -227,3 +218,20 @@ If you use the data pipeline or evaluation protocol, please also cite CONQUER:
 ```
 
 We also thank the authors of [TVRetrieval](https://github.com/jayleicn/TVRetrieval), [HERO](https://github.com/linjieli222/HERO/) for their open-source contributions to VCMR research.
+
+## Citation
+
+If you find DeMUL useful in your research, please cite:
+
+```bibtex
+@article{yang2026demul,
+  author={Yang, Yong and Liu, Meng and Song, Xuemeng and Zheng, Na and Lu, Ke and Guan, Weili},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  title={Video Corpus Moment Retrieval via Decoupled Multimodal Modeling and Unified Localization},
+  year={2026},
+  volume={36},
+  number={10},
+  pages={15069-15081},
+  doi={10.1109/TCSVT.2026.3705906}
+}
+```
