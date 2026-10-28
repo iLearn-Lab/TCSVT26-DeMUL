@@ -4,7 +4,14 @@
 
 ### DeMUL · IEEE TCSVT 2026
 
-[Yong Yang](https://github.com/Yongyangyyy), Meng Liu, Xuemeng Song, Na Zheng, Ke Lu, Weili Guan<sup>†</sup>
+[Yong Yang](https://github.com/Yongyangyyy)<sup>1</sup>, Meng Liu<sup>2</sup>, Xuemeng Song<sup>3</sup>, Na Zheng<sup>4</sup>, Ke Lv<sup>5,6</sup>, Weili Guan<sup>1,†</sup>
+
+<sup>1</sup>Harbin Institute of Technology, Shenzhen &nbsp;
+<sup>2</sup>Shandong University &nbsp;
+<sup>3</sup>Southern University of Science and Technology &nbsp;
+<sup>4</sup>National University of Singapore<br>
+<sup>5</sup>University of Chinese Academy of Sciences &nbsp;
+<sup>6</sup>Peng Cheng Laboratory
 
 <sup>†</sup>Corresponding author
 
